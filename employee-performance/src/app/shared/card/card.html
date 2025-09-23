@@ -1,0 +1,15 @@
+<div class="card employee-card shadow-sm mb-4">
+  <div class="card-header gradient-header">
+    <h4>{{ employee.name }}</h4>
+    <small>{{ employee.position }}</small>
+  </div>
+  <div class="card-body">
+    <p><strong>Email:</strong> {{ employee.email }}</p>
+    <p><strong>Department:</strong> {{ employee.department }}</p>
+    <p><strong>Total Experience:</strong> {{ employee.totalExperience }} years</p>
+    <p>
+      <strong>Performance Score:</strong>
+      <span class="badge score-badge">{{ employee.performanceScore }}%</span>
+    </p>
+  </div>
+</div>

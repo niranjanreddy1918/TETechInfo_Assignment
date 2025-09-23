@@ -1,0 +1,59 @@
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input id="name" type="text" class="form-control" formControlName="name">
+    <div *ngIf="employeeForm.get('name')?.touched && employeeForm.get('name')?.invalid" class="text-danger mt-1">
+      Name is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="position" class="form-label">Position</label>
+    <input id="position" type="text" class="form-control" formControlName="position">
+    <div *ngIf="employeeForm.get('position')?.touched && employeeForm.get('position')?.invalid"
+      class="text-danger mt-1">
+      Position is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input id="email" type="email" class="form-control" formControlName="email">
+    <div *ngIf="employeeForm.get('email')?.touched && employeeForm.get('email')?.invalid" class="text-danger mt-1">
+      <div *ngIf="employeeForm.get('email')?.errors?.['required']">Email is required.</div>
+      <div *ngIf="employeeForm.get('email')?.errors?.['email']">Enter a valid email.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="department" class="form-label">Department</label>
+    <input id="department" type="text" class="form-control" formControlName="department">
+    <div *ngIf="employeeForm.get('department')?.touched && employeeForm.get('department')?.invalid"
+      class="text-danger mt-1">
+      Department is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="totalExperience" class="form-label">Total Experience (years)</label>
+    <input id="totalExperience" type="number" class="form-control" formControlName="totalExperience">
+    <div *ngIf="employeeForm.get('totalExperience')?.touched && employeeForm.get('totalExperience')?.invalid"
+      class="text-danger mt-1">
+      <div *ngIf="employeeForm.get('totalExperience')?.errors?.['required']">Total experience is required.</div>
+      <div *ngIf="employeeForm.get('totalExperience')?.errors?.['min']">Experience cannot be negative.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="performanceScore" class="form-label">Performance Score (0-100)</label>
+    <input id="performanceScore" type="number" class="form-control" formControlName="performanceScore">
+    <div *ngIf="employeeForm.get('performanceScore')?.touched && employeeForm.get('performanceScore')?.invalid"
+      class="text-danger mt-1">
+      <div *ngIf="employeeForm.get('performanceScore')?.errors?.['required']">Performance score is required.</div>
+      <div *ngIf="employeeForm.get('performanceScore')?.errors?.['min']">Score cannot be less than 0.</div>
+      <div *ngIf="employeeForm.get('performanceScore')?.errors?.['max']">Score cannot be more than 100.</div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="employeeForm.invalid">Submit</button>
+</form>

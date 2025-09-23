@@ -9,4 +9,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('employee-performance');
+
+  toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+  }
 }

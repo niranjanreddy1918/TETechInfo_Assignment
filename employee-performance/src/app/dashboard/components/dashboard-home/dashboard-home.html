@@ -1,0 +1,18 @@
+<div class="m-3">
+    <div class="d-flex justify-content-between">
+        <h2>Employee Dashboard</h2>
+        <button class="btn btn-primary addButton" (click)="toggleSlider()">
+            Add Employee Data
+        </button>
+    </div>
+
+    <div *ngIf="showSlider" class="formSlider p-3">
+        <app-form (submitForm)="onAddEmployee($event)"></app-form>
+    </div>
+
+    <div class="employee-list row">
+        <app-card *ngFor="let emp of employees" class="col-3" [employee]="emp"></app-card>
+    </div>
+    <app-chart [chartLabels]="chartLabels" [chartData]="chartData" chartTitle="Employee Performance"></app-chart>
+
+</div>

@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/_variables' as *;
+@use "bootstrap/scss/bootstrap" as *;
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--card-text);
+  background-color: var(--card-bg);
+  margin: 0;
+}
+
+:root {
+  --card-bg: #{$light-bg};
+  --card-text: #{$light-text};
+}
+
+body.dark-theme {
+  --card-bg: #{$dark-bg};
+  --card-text: #{$dark-text};
+}
+
