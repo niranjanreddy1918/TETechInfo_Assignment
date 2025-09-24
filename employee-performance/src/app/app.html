@@ -1,5 +1,18 @@
 
-<div class="text-center p-2">
-    <button (click)="toggleTheme()" class="btn btn-primary">🌙 Toggle Theme</button>
+<div class="text-end p-2">
+    <button class="btn btn-outline-primary" (click)="toggleTheme()">
+    {{ isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+  </button>
+</div>
+<div class="nav nav-tabs">
+  <a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+    Dashboard
+  </a>
+  <a routerLink="/reports" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+    Reports
+  </a>
+  <a routerLink="/settings" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
+    Add Employee
+  </a>
 </div>
 <router-outlet />
